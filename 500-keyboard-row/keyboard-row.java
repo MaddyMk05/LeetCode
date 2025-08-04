@@ -27,8 +27,9 @@ class Solution {
             }
         }
         String [] out = new String [key.size()];
-        for(int i=0;i<key.size();i++){
-            out[i]=key.get(i);
+        int i = 0;
+        for(String w : key){
+            out[i++]=w;
         }
         return out;
     }
