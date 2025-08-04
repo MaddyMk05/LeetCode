@@ -7,12 +7,9 @@ class Solution {
         for( int i=0;i<words.length;i++){
             String word = words[i];
             String lower = word.toLowerCase();
-
-
             boolean isRow1=true;
             boolean isRow2=true;
             boolean isRow3=true;
-
             for(int j=0; j<lower.length();j++){
                 char ch = lower.charAt(j);
                 if(row1.indexOf(ch) == -1){
@@ -25,7 +22,6 @@ class Solution {
                     isRow3 = false;
                 }
             }
-
             if(isRow1 || isRow2 || isRow3){
                 key.add(word);
             }
@@ -35,6 +31,5 @@ class Solution {
             out[i]=key.get(i);
         }
         return out;
-        
     }
 }
