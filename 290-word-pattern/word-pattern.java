@@ -1,30 +1,32 @@
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-        String[] words = s.split(" ");
-        if (pattern.length() != words.length) return false;
-
-        Map<Character, String> charToWord = new HashMap<>();
-        Map<String, Character> wordToChar = new HashMap<>();
-
-        for (int i = 0; i < pattern.length(); i++) {
-            char c = pattern.charAt(i);
-            String w = words[i];
-
-            // Check character-to-word mapping
-            if (charToWord.containsKey(c)) {
-                if (!charToWord.get(c).equals(w)) return false;
-            } else {
-                charToWord.put(c, w);
-            }
-
-            // Check word-to-character mapping
-            if (wordToChar.containsKey(w)) {
-                if (wordToChar.get(w) != c) return false;
-            } else {
-                wordToChar.put(w, c);
-            }
+        String [] str=s.split(" ");
+        if(pattern.length()!=str.length){
+            return false;
         }
+        Map<Character, String> chartoword =new HashMap<>();
+        Map<String, Character> wordtochar =new HashMap<>();
+            for(int i=0;i<pattern.length();i++){
+                char ch=pattern.charAt(i);
+                String w= str[i];
 
-        return true;
+                if(chartoword.containsKey(ch)){
+                    if(!chartoword.get(ch).equals(w)){
+                        return false;
+                    }
+                }else{
+                    chartoword.put(ch, w);
+                }
+
+                if(wordtochar.containsKey(w)){
+                    if(wordtochar.get(w) != ch ){
+                        return false;
+                    }
+                }
+                    else{
+                        wordtochar.put(w,ch);
+                }
+            }
+            return true;
     }
 }
