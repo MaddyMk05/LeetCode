@@ -1,12 +1,7 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        boolean [] seen =new boolean [26];
-        for(int i=0;i<sentence.length();i++){
-            char ch=sentence.charAt(i);
-            seen [ch - 'a']= true;
-        }
-        for(boolean val : seen){
-            if(!val){
+        for(int i='a';i<='z';i++){
+            if(sentence.indexOf(i)==-1){
                 return false;
             }
         }
